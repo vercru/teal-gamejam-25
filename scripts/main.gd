@@ -8,7 +8,7 @@ func _ready():
 	add_child(label)
 
 	var sprite = Sprite2D.new()
-	var texture = preload("res://assets/icon.svg") # Replace with your asset
+	var texture = preload("res://assets/icon.svg")
 	sprite.texture = texture
 	sprite.position = Vector2(200, 200)
 
