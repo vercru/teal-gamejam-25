@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://fc2e6a1rhbyo"]
+
+[ext_resource type="Texture2D" uid="uid://vstp2l4p4qh" path="res://assets/transparantButton.svg" id="1_2wsep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wsep"]
+radius = 5.80345
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(708, 525)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_2wsep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(707, 525)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_2wsep")

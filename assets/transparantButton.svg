@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="transparantButton.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.39910213"
+     inkscape:cx="395.88864"
+     inkscape:cy="561.25984"
+     inkscape:window-width="1280"
+     inkscape:window-height="650"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Laag 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1"
+       style="fill:#000000;fill-opacity:1;stroke-width:0.264583;fill-rule:evenodd"
+       d="M 103.41953 74.250248 A 73.587051 76.238838 0 0 0 29.832804 150.48901 A 73.587051 76.238838 0 0 0 103.41953 226.72776 A 73.587051 76.238838 0 0 0 177.00677 150.48901 A 73.587051 76.238838 0 0 0 103.41953 74.250248 z M 102.42527 99.441992 A 18.231028 17.899553 0 0 1 120.6562 117.34167 A 18.231028 17.899553 0 0 1 102.42527 135.24084 A 18.231028 17.899553 0 0 1 84.194344 117.34167 A 18.231028 17.899553 0 0 1 102.42527 99.441992 z M 65.665759 129.93109 A 18.231028 17.899553 0 0 1 83.896688 147.83025 A 18.231028 17.899553 0 0 1 65.665759 165.72994 A 18.231028 17.899553 0 0 1 47.434831 147.83025 A 18.231028 17.899553 0 0 1 65.665759 129.93109 z M 138.52126 131.26279 A 18.231028 17.899553 0 0 1 156.75271 149.16247 A 18.231028 17.899553 0 0 1 138.52126 167.06215 A 18.231028 17.899553 0 0 1 120.29033 149.16247 A 18.231028 17.899553 0 0 1 138.52126 131.26279 z M 102.03253 161.0186 A 18.231028 17.899553 0 0 1 120.26346 178.91828 A 18.231028 17.899553 0 0 1 102.03253 196.81796 A 18.231028 17.899553 0 0 1 83.801603 178.91828 A 18.231028 17.899553 0 0 1 102.03253 161.0186 z " />
+  </g>
+</svg>
