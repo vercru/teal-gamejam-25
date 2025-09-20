@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b13jm7wv30qmw"]
+
+[ext_resource type="Shader" uid="uid://6gs6e2qk5mp2" path="res://shaders/background.gdshader" id="1_nnsk1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnsk1"]
+shader = ExtResource("1_nnsk1")
+shader_parameter/color_a = Color(0.027, 0.09, 0.16, 1)
+shader_parameter/color_b = Color(0.47, 0.76, 0.94, 1)
+shader_parameter/global_brightness = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/blob_count = 5
+shader_parameter/blob_scale = 1.0
+shader_parameter/blob_speed = 0.4
+shader_parameter/blob_softness = 0.35
+shader_parameter/noise_strength = 0.12
+shader_parameter/noise_scale = 3.0
+shader_parameter/vignette = 0.8
+shader_parameter/glow = 1.1
+
+[node name="Control" type="CanvasLayer"]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nnsk1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
