@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var move_deadzone: float = 100.0
 @export var sprite: Sprite2D
 @export var collideScale: float = 1.5
-@export var collideScaleAnimationTime: float = 0.1
+@export var collideScaleAnimationTime: float = 0.2
 
 var spriteOrigScale: Vector2
 var scaleTimer: float = 0
@@ -13,9 +13,9 @@ func _ready() -> void:
 	spriteOrigScale = sprite.scale
 
 func _process(delta: float) -> void:
+	sprite.scale = spriteOrigScale * lerp(1.0, collideScale, ease(scaleTimer / collideScaleAnimationTime, -2))
 	if (scaleTimer > 0):
 		scaleTimer = maxf(0, scaleTimer - delta)
-	sprite.scale = spriteOrigScale * lerp_angle(1, collideScale, scaleTimer / collideScaleAnimationTime)
 
 func _physics_process(delta: float) -> void:
 	var mouse_position = get_global_mouse_position()
