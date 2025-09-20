@@ -1,7 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfdwab8cxidu5"]
+[gd_scene load_steps=9 format=3 uid="uid://bfdwab8cxidu5"]
 
 [ext_resource type="Script" uid="uid://wxrxgsw72pwm" path="res://scripts/food.gd" id="1_af40f"]
 [ext_resource type="Texture2D" uid="uid://ba5a263lrn6v4" path="res://assets/button_greyscale.png" id="2_370ap"]
+
+[sub_resource type="Animation" id="Animation_af40f"]
+resource_name = "scale\\_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(-2.5, -2.5),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_370ap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjm1k"]
+_data = {
+&"RESET": SubResource("Animation_370ap"),
+&"scale\\_in": SubResource("Animation_af40f")
+}
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_af40f"]
 blend_mode = 1
@@ -20,13 +57,21 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="Food" type="Node2D" node_paths=PackedStringArray("sprite", "glow")]
 script = ExtResource("1_af40f")
-sprite = NodePath("Sprite2D")
-glow = NodePath("glow")
+sprite = NodePath("Node2D/Sprite2D")
+glow = NodePath("Node2D/glow")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qjm1k")
+}
+autoplay = "scale\\_in"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_370ap")
 
-[node name="glow" type="Sprite2D" parent="."]
+[node name="glow" type="Sprite2D" parent="Node2D"]
 material = SubResource("CanvasItemMaterial_af40f")
 texture = SubResource("GradientTexture2D_370ap")

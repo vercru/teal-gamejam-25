@@ -13,12 +13,12 @@ script = ExtResource("1_o5qli")
 [node name="hero" parent="." instance=ExtResource("2_0wfyh")]
 
 [node name="enemy" parent="." instance=ExtResource("3_sugp2")]
-
-[node name="Food" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(563, 373)
+position = Vector2(-1070, -337)
 
 [node name="world" parent="." instance=ExtResource("4_jyhfs")]
 
 [node name="foodSpawner" type="Node2D" parent="."]
 script = ExtResource("6_tefeu")
 foodScene = ExtResource("5_tbgi4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
