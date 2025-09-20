@@ -7,7 +7,7 @@
 radius = 6.98771
 
 [node name="hero" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_c08b3")
 sprite = NodePath("Sprite2D")
 
@@ -19,3 +19,5 @@ texture = ExtResource("2_c08b3")
 scale = Vector2(8, 8)
 shape = SubResource("CircleShape2D_c08b3")
 one_way_collision_margin = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
