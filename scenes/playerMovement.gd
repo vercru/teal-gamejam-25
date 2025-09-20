@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 
 			if collider is StaticBody2D:
 				print("Collided with:", collider.name)
+				collider.queue_free()
 				scaleTimer = collideScaleAnimationTime
 		
 		
