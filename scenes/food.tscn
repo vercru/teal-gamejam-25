@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfdwab8cxidu5"]
+
+[ext_resource type="Script" uid="uid://wxrxgsw72pwm" path="res://scripts/food.gd" id="1_af40f"]
+[ext_resource type="Texture2D" uid="uid://ba5a263lrn6v4" path="res://assets/button_greyscale.png" id="2_370ap"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_af40f"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_af40f"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.539535)
+colors = PackedColorArray(1, 1, 1, 0.647059, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_370ap"]
+gradient = SubResource("Gradient_af40f")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Food" type="Node2D" node_paths=PackedStringArray("sprite", "glow")]
+script = ExtResource("1_af40f")
+sprite = NodePath("Sprite2D")
+glow = NodePath("glow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_370ap")
+
+[node name="glow" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_af40f")
+texture = SubResource("GradientTexture2D_370ap")

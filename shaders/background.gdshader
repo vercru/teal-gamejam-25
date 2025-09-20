@@ -98,10 +98,10 @@ void fragment() {
     float n = fbm((p + vec2(TIME*0.03, TIME*0.02)) * noise_scale);
     col += (n - 0.5) * noise_strength;
 
-    // vignette
-    float dist = length(p);
-    float vig = smoothstep(0.7 + vignette*0.1, 0.95, dist);
-    col *= (1.0 - vig);
+    //// vignette
+    //float dist = length(p);
+    //float vig = smoothstep(0.7 + vignette*0.1, 0.95, dist);
+    //col *= (1.0 - vig);
 
     // contrast & brightness
     col = pow(col * global_brightness, vec3(1.0 / max(0.0001, 1.0 - contrast * 0.25)));

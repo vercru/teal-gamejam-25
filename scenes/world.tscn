@@ -4,18 +4,18 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnsk1"]
 shader = ExtResource("1_nnsk1")
-shader_parameter/color_a = Color(0.027, 0.09, 0.16, 1)
-shader_parameter/color_b = Color(0.47, 0.76, 0.94, 1)
+shader_parameter/color_a = Color(0.452571, 0.00698315, 0.353104, 1)
+shader_parameter/color_b = Color(0.0943794, 0.314437, 0.434702, 1)
 shader_parameter/global_brightness = 1.0
 shader_parameter/contrast = 1.0
 shader_parameter/blob_count = 5
 shader_parameter/blob_scale = 1.0
 shader_parameter/blob_speed = 0.4
 shader_parameter/blob_softness = 0.35
-shader_parameter/noise_strength = 0.12
-shader_parameter/noise_scale = 3.0
+shader_parameter/noise_strength = 0.041
+shader_parameter/noise_scale = 1.0
 shader_parameter/vignette = 0.8
-shader_parameter/glow = 1.1
+shader_parameter/glow = 1.389
 
 [node name="world" type="CanvasLayer"]
 layer = -128
