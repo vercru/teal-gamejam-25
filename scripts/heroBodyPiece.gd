@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var parentGlobalPos = get_parent().global_position
-	global_position = lerp(prevPosition, parentGlobalPos, delta * 10)
+	global_position = lerp(prevPosition, parentGlobalPos, delta * 8)
 	prevPosition = global_position
 	look_at(parentGlobalPos)
 

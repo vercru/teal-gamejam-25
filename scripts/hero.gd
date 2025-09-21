@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 		scaleTimer = maxf(0, scaleTimer - delta)
 		if prev > collideScaleAnimationTime / 2 and scaleTimer <= collideScaleAnimationTime / 2:
 			firstChild.boop(collideScaleAnimationTime, collideScale)
+			
+	look_at(get_global_mouse_position())
 
 
 func _physics_process(delta: float) -> void:
