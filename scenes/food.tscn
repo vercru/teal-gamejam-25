@@ -60,6 +60,7 @@ radius = 23.0217
 
 [node name="Food" type="StaticBody2D" node_paths=PackedStringArray("sprite", "glow")]
 collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_af40f")
 sprite = NodePath("Node2D/Sprite2D")
 glow = NodePath("Node2D/glow")

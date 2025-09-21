@@ -1,19 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu2ipts85nlj8"]
+[gd_scene load_steps=5 format=3 uid="uid://cu2ipts85nlj8"]
 
-[ext_resource type="Script" uid="uid://b4pd0wjsx83ah" path="res://scenes/playerMovement.gd" id="1_c08b3"]
-[ext_resource type="Texture2D" uid="uid://vstp2l4p4qh" path="res://assets/transparantButton.svg" id="2_c08b3"]
+[ext_resource type="Script" uid="uid://b4pd0wjsx83ah" path="res://scripts/hero.gd" id="1_c08b3"]
+[ext_resource type="PackedScene" uid="uid://bmdkq8rahiyb0" path="res://scenes/heroBodyPiece.tscn" id="2_06baw"]
+[ext_resource type="Texture2D" uid="uid://ba5a263lrn6v4" path="res://assets/button_greyscale.png" id="2_yvbpl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c08b3"]
 radius = 6.98771
 
-[node name="hero" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="hero" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "headNode")]
 collision_mask = 6
 script = ExtResource("1_c08b3")
-sprite = NodePath("Sprite2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_c08b3")
+sprite = NodePath("head/Sprite2D")
+headNode = NodePath("head")
+bodyPieceScene = ExtResource("2_06baw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(8, 8)
@@ -21,3 +20,10 @@ shape = SubResource("CircleShape2D_c08b3")
 one_way_collision_margin = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="head" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="head"]
+modulate = Color(2.88785e-07, 0.60944, 0.52329, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_yvbpl")
