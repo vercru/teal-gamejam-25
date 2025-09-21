@@ -5,13 +5,14 @@ extends CharacterBody2D
 @export var sprite: Sprite2D
 @export var collideScale: float = 1.5
 @export var collideScaleAnimationTime: float = 0.2
-@export var headNode: Node2D
+@export var headNode: StaticBody2D
 @export var bodyPieceScene: PackedScene
 
 var spriteOrigScale: Vector2
 var scaleTimer: float = 0
-var tailNode: Node2D
-var firstChild: Node2D
+var tailNode: StaticBody2D
+var firstChild: StaticBody2D
+var numberOfButtons = 1 #this best can be used as a property on hero
 
 func _ready() -> void:
 	spriteOrigScale = sprite.scale
@@ -49,16 +50,18 @@ func _physics_process(delta: float) -> void:
 				if collider.collision_layer == 0:
 					continue
 
+				numberOfButtons += 1
 				var colour = get_first_sprite2d(collider).modulate
 				var newTailNode = bodyPieceScene.instantiate()
 				get_first_sprite2d(newTailNode).modulate = colour
+				if numberOfButtons > 4: newTailNode.collision_layer = 4
 				tailNode.add_child(newTailNode)
 				tailNode.move_child(newTailNode, 0)
 				if tailNode != headNode: tailNode.child = newTailNode
 				tailNode = newTailNode
 				if firstChild == null: firstChild = newTailNode
 
-				collider.collision_layer = 0
+				if collider.collision_layer != 4: collider.collision_layer = 0
 				collider.queue_free()
 				scaleTimer = collideScaleAnimationTime
 

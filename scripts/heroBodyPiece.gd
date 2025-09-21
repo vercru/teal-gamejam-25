@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 @export var sprite: Sprite2D
 
@@ -7,7 +7,7 @@ var scaleTimer: float = 0
 var _animationTime: float
 var animationScaleSize: float
 var spriteOrigScale: Vector2
-var child: Node2D
+var child: StaticBody2D
 
 func _ready() -> void:
 	prevPosition = global_position

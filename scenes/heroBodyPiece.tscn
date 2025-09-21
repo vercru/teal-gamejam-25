@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmdkq8rahiyb0"]
+[gd_scene load_steps=4 format=3 uid="uid://bmdkq8rahiyb0"]
 
 [ext_resource type="Script" uid="uid://cs4gqx7xo5klj" path="res://scripts/heroBodyPiece.gd" id="1_ocae1"]
 [ext_resource type="Texture2D" uid="uid://ba5a263lrn6v4" path="res://assets/button_greyscale.png" id="2_buvcq"]
 
-[node name="HeroBodyPiece" type="Node2D" node_paths=PackedStringArray("sprite")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocae1"]
+radius = 44.0454
+
+[node name="HeroBodyPiece" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 8
 script = ExtResource("1_ocae1")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_buvcq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ocae1")
