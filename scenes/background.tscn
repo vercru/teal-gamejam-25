@@ -17,7 +17,7 @@ shader_parameter/noise_scale = 1.0
 shader_parameter/vignette = 0.8
 shader_parameter/glow = 1.389
 
-[node name="world" type="CanvasLayer"]
+[node name="background" type="CanvasLayer"]
 layer = -128
 
 [node name="ColorRect" type="ColorRect" parent="."]
