@@ -16,6 +16,6 @@ script = ExtResource("1_o5qli")
 [node name="foodSpawner" type="Node2D" parent="."]
 script = ExtResource("6_tefeu")
 foodScene = ExtResource("5_tbgi4")
-spawnTime = 1.0
+spawnTime = 0.25
 
 [node name="Camera2D" type="Camera2D" parent="."]
