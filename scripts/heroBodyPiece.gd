@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+class_name HeroBodyPiece
+
 @export var sprite: Sprite2D
 
 var prevPosition: Vector2

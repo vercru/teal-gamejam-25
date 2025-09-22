@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Food
+
 @export var sprite: Sprite2D
 @export var glow: Sprite2D
 @export var minRotSpeed: float = 0.2

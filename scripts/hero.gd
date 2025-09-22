@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var camera = $Camera2D
+@onready var start_button = get_node("../Control/StartButton")
+
 @export var speed: float = 350.0
 @export var moveDeadzone: float = 100.0
 @export var sprite: Sprite2D
@@ -17,6 +20,7 @@ var numberOfButtons = 1 #this best can be used as a property on hero
 func _ready() -> void:
 	spriteOrigScale = sprite.scale
 	tailNode = headNode;
+	camera.make_current()
 
 func _process(delta: float) -> void:
 	sprite.scale = spriteOrigScale * lerp(1.0, collideScale, ease(scaleTimer / collideScaleAnimationTime, -2))
@@ -44,24 +48,28 @@ func _physics_process(delta: float) -> void:
 		
 		if collision:
 			var collider = collision.get_collider()
+			
+			if collider is HeroBodyPiece:
+				die()
 
-			if collider is StaticBody2D:
+			if collider is Food:
 				#multiple collision hits within 1 frame can happen due to a bug in the physics engine: https://github.com/godotengine/godot/issues/98353
 				if collider.collision_layer == 0:
 					continue
 
+				collider.collision_layer = 0
 				numberOfButtons += 1
+				speed += 10
 				var colour = get_first_sprite2d(collider).modulate
 				var newTailNode = bodyPieceScene.instantiate()
 				get_first_sprite2d(newTailNode).modulate = colour
-				if numberOfButtons > 4: newTailNode.collision_layer = 4
+				if numberOfButtons < 7: newTailNode.collision_layer = 0
 				tailNode.add_child(newTailNode)
 				tailNode.move_child(newTailNode, 0)
 				if tailNode != headNode: tailNode.child = newTailNode
 				tailNode = newTailNode
 				if firstChild == null: firstChild = newTailNode
 
-				if collider.collision_layer != 4: collider.collision_layer = 0
 				collider.queue_free()
 				scaleTimer = collideScaleAnimationTime
 
@@ -73,3 +81,7 @@ func get_first_sprite2d(node: Node) -> Sprite2D:
 		if sprite:
 			return sprite
 	return null
+	
+func die():
+	queue_free()
+	start_button.visible = true

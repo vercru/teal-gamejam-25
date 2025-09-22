@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7pxllv4ipaf5"]
+[gd_scene load_steps=10 format=3 uid="uid://b7pxllv4ipaf5"]
 
 [ext_resource type="Script" uid="uid://bdfr4wi6emtdu" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://cu2ipts85nlj8" path="res://scenes/hero.tscn" id="2_0wfyh"]
@@ -6,19 +6,42 @@
 [ext_resource type="PackedScene" uid="uid://bfdwab8cxidu5" path="res://scenes/food.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://tmc6dp76v8ui" path="res://scenes/title.tscn" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://cltj4fir71qny" path="res://scripts/foodSpawner.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://bg5kqyxflkpm6" path="res://scenes/control.gd" id="7_85g3d"]
+[ext_resource type="Texture2D" uid="uid://coaqalw8v4ce5" path="res://assets/button_start.png" id="8_choun"]
+[ext_resource type="Texture2D" uid="uid://g1jtsxuhyt2h" path="res://assets/button_start_pressed.png" id="9_ya4ey"]
 
 [node name="root" type="Node2D"]
 script = ExtResource("1_o5qli")
 
-[node name="hero" parent="." instance=ExtResource("2_0wfyh")]
+[node name="gameRoot" type="Node2D" parent="."]
 
-[node name="world" parent="." instance=ExtResource("4_jyhfs")]
+[node name="world" parent="gameRoot" instance=ExtResource("4_jyhfs")]
 
-[node name="foodSpawner" type="Node2D" parent="."]
+[node name="foodSpawner" type="Node2D" parent="gameRoot"]
 script = ExtResource("6_tefeu")
 foodScene = ExtResource("5_tbgi4")
 spawnTime = 0.25
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="gameRoot"]
 
-[node name="Title" parent="." instance=ExtResource("6_o6xl0")]
+[node name="Title" parent="gameRoot" instance=ExtResource("6_o6xl0")]
+
+[node name="Control" type="Control" parent="gameRoot"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 172.0
+offset_top = 59.0
+offset_right = 212.0
+offset_bottom = 99.0
+script = ExtResource("7_85g3d")
+hero_scene = ExtResource("2_0wfyh")
+
+[node name="StartButton" type="TextureButton" parent="gameRoot/Control"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = -315.0
+offset_right = 1625.0
+offset_bottom = 709.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("8_choun")
+texture_pressed = ExtResource("9_ya4ey")
